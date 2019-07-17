@@ -1,7 +1,7 @@
 import tkinter
 import PriorityQueue as pq
 import Grid
-
+import sys
 
 def heuristic(a, b):
     """
@@ -95,7 +95,8 @@ def visualization(board):
     root.mainloop()                                                     #Display grid
 
 if __name__ == "__main__":
-    grid = Grid.Grid("board-2-3.txt")
+    filename = str(sys.argv[1])
+    grid = Grid.Grid(filename)
     astar = search(grid)                                                #executes the a star algorithm
     grid.set_path(reconstruct_path(astar,grid.start,grid.goal))
     visualization(grid)
